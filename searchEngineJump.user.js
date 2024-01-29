@@ -3,9 +3,9 @@
 // @author         NLF&锐经(修改) & iqxin(修改) & raylanb(修改)
 // @contributor    iqxin
 // @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.26.7
+// @version        5.26.8
 // @created        2011-07-02
-// @lastUpdated    2024-01-28
+// @lastUpdated    2024-01-29
 
 // @origin_namespace      https://greasyfork.org/zh-CN/scripts/27752-searchenginejump
 // @origin_home     https://github.com/qxinGitHub/searchEngineJump
@@ -1761,13 +1761,8 @@
         // 网页搜索列表
         engineList.web = [];
 
-        engineList.web[0] = {
-            name: '必应',
-            url: 'https://www.bing.com/search?q=%s',
-            favicon: icon.bing,
-            };
         // engineList.web[0] 中间的数字表示排序(数字不能重复,否则后面的会覆盖掉前面的),越小数字越靠前,小于0该引擎不会显示在页面上
-        engineList.web[1] = {
+        engineList.web[0] = {
             // 搜索引擎名称
             name: 'Google',
             // 搜索引擎地址,关键字变量用%s代替
@@ -1783,6 +1778,11 @@
             // blank:true,
             // 禁用该搜索, 只在设置中显示该搜索
             // disable:true,
+            };
+        engineList.web[1] = {
+            name: '必应',
+            url: 'https://www.bing.com/search?q=%s',
+            favicon: icon.bing,
         };
         engineList.web[2] = {
             name: 'DDG',
