@@ -3,7 +3,7 @@
 // @author         NLF&锐经(修改) & iqxin(修改) & raylanb(修改)
 // @contributor    iqxin
 // @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.26.10
+// @version        5.26.11
 // @created        2011-07-02
 // @lastUpdated    2024-07-05
 
