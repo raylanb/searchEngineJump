@@ -1,4 +1,6 @@
-# 这是 修改 qxinGitHub/searchEngineJump 而来，原仓库地址：https://github.com/qxinGitHub/searchEngineJump
+## 本项目基于 qxinGitHub/searchEngineJump
+
+原仓库地址：https://github.com/qxinGitHub/searchEngineJump
 
 ## 使用说明
 
