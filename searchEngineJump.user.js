@@ -74,14 +74,14 @@
                         // 'beforeEnd' (作为给定元素的最后一个子元素) ;
                         // 'afterEnd'(插入到给定元素的后面);.
                 insertIntoDoc: {
-                    target: 'css;#appbar',
+                    target: 'css;.ZeeOc',
                     // 若 keyword 使用函数获取
                     // keyword: function () {
                         // var input = document.getElementById('lst-ib');
                         // if (input) return input.value;
                     // },
                     keyword: '//textarea[@name="q"]',
-                    where: 'beforeBegin',
+                    where: 'afterEnd',
                 },
                 // 修改源网页用来适应跳转栏（可选）
                 // stylish: 'body.vasq #hdtbMenus.hdtb-td-o{top:100px !important;} #hdtbMenus{top:92px;margin-top:30px;}'
