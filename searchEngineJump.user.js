@@ -3,9 +3,9 @@
 // @author         NLF&锐经(修改) & iqxin(修改) & raylanb(修改)
 // @contributor    iqxin
 // @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.26.12
+// @version        5.26.13
 // @created        2011-07-02
-// @lastUpdated    2025-01-03
+// @lastUpdated    2025-01-04
 
 // @origin_namespace      https://greasyfork.org/zh-CN/scripts/27752-searchenginejump
 // @updateURL       https://raw.githubusercontent.com/raylanb/searchEngineJump/master/searchEngineJump.user.js
@@ -55,8 +55,9 @@
                 //  给引擎列表的样式 
                 style: '\
                     z-index: 100;\
-                    margin-top:5px;\
-                    margin-bottom:-5px;\
+                    margin-top: -10px;\
+                    margin-bottom: -5px;\
+                    margin-left: -10px;\
                     ',
                 // 给引擎列表的样式 （“style_ACBaidu” 可选,是为了兼容 “AC Baidu” 脚本）
                 style_ACBaidu: '\
@@ -74,7 +75,7 @@
                         // 'beforeEnd' (作为给定元素的最后一个子元素) ;
                         // 'afterEnd'(插入到给定元素的后面);.
                 insertIntoDoc: {
-                    target: 'css;.ZeeOc',
+                    target: 'css;#bqHHPb, .bqHHPb',
                     // 若 keyword 使用函数获取
                     // keyword: function () {
                         // var input = document.getElementById('lst-ib');
