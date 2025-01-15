@@ -3,9 +3,9 @@
 // @author         NLF&锐经(修改) & iqxin(修改) & raylanb(修改)
 // @contributor    iqxin
 // @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.26.13
+// @version        5.26.14
 // @created        2011-07-02
-// @lastUpdated    2025-01-04
+// @lastUpdated    2025-01-15
 
 // @origin_namespace      https://greasyfork.org/zh-CN/scripts/27752-searchenginejump
 // @updateURL       https://raw.githubusercontent.com/raylanb/searchEngineJump/master/searchEngineJump.user.js
@@ -32,7 +32,7 @@
 
 (function () {
     'use strict';
-
+    
     // console.log("脚本: 搜索引擎快捷跳转 --- 开始执行 --- 发布者: qxin --- GitHub:https://github.com/qxinGitHub/searchEngineJump ← 问题反馈地址")
     function iqxinstart(){
         // 根据规则把搜索引擎列表插入到指定网站
@@ -1812,7 +1812,7 @@
         };
         engineList.web[6] = {
             name: 'Startpage',
-            url: 'https://www.startpage.com/do/asearch$post$query',
+            url: 'https://www.startpage.com/do/dsearch?query=%s',
             favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVR4nO2WTUoDQRBGX5txIMRs/EFBAm49iEfxBN5J8AAeZwwkgmTR6e6ZHsNMDO2iFkEyibqQcVG1+aq74KvXteky9w8p0WMc9dlcARRAARRAARTgXwBk+z5jYyA/3p7zvDv/Ltp2N2/XoilBNj4Rw6sLuDyXwuRa9OxUdDz6ajoc/hwAYLUSrertnV2KmpT6XUiyvzBtGplxjPLksooA+FAB4HzZDdA0a2Ksmb2+4XzJYmFxPlBM51jr8aHCLgPOBQDqd5ntx2ZzECgbDPbWzOPTcyqmM5wvKV7mOw26zA8Z/jbMze2dLqUKoAAKoAC9xic+GmK9S0OJvAAAAABJRU5ErkJggg==',
             disable:false,
         };
@@ -1825,6 +1825,11 @@
             name: '百度',
             url: 'https://www.baidu.com/s?wd=%s&ie=utf-8',
             favicon: icon.baidu,
+        };
+        engineList.web[9] = {
+            name: '多重隐私搜索',
+            url: 'https://duckduckgo.com/?q=%s;https://www.startpage.com/do/dsearch?query=%s',
+            favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADiElEQVQ4jXWTfVDTBRjHn+uyi8KAbWz7/TbeNzeUeNkLCljGS3hrspDUsC7vqivz5cI/OtQ7vSxNrpvdkQx0k10M5FYgztECgfOoM7kurs6IFx1ja7xsgMiLAySDffvDtLrs8/fz+T7PH8+X6BFIQymxOGb1WyWy8COH13LL9svCSgtEoTt4RMyj5h/CIRKfSImsMKu4NrOKZ6vZwDafz2Tbajaw9ur1wibzemHj+7Lwo0S06j9yYtgqRX0m216lFDS0FCR3Obcl3/FvFmJCFwt/0Rr0aOPGrVlsuymduVShEljDiCL+3hxCUbWZTLtBwfuqXyeZCThqsTTUj0BrPUZ2psGTE4mxQilmt8twLT/WVaUSXvgsjW8hoseJiOhYUuTpSqWw8YYmPjC6JQ5TtXqsLAYAAMu3fLj9eSk8eQw8OimmXpGjMzfWaU5nv94RvfodkoQ+se6cmm2+tDGqe1Ijxm+HXsd4IIi5+WUAQBDA6MRdePdq4c4Xw12wBlNFifginW0tTxN8Sa9Gh+02qlh7v0ayOJTNh8d4Ev7AMq4P+BAM3g/4rm8KvdVn4H6exWCOHMMaOTqzY1wGJXORDkg5H1ermZYRnQyubCEG9R/Av7CCsnOd+P3eCgCg68YCbnZ0YGyXCLf0AowfjML1PMm8UcHaqVTOO1WjFnWMFMjgyhWjZ48OC3/cPx9YRnD6POArAoZSsfT9k7jTEIHR/THoyZXerVYzLfReQvjRs0qRw7NFBmd+HH4pTMXk6Mhf/jTg4WDGRBjex4f33Th43ojHoEaG7nzJXKWSsdHLwmd2VSmE9h9flMwNaqT4NSca3mudeMCs4xDGj4fgdiUfc1YOJssF8OpkcGTF9FUomIvEIRIb0li7RSX+dqxAjt6NAgxYDA8Dpq116E+JhHdzPJxaKfpyZBjWymFQsPZPkvgWIiLancA9Up7C2K5sivd6XxCh98MS+JYmMDzvxqJ7AN2FctSVKtC9dS18LyWiXh3dZVKK257jPaV98IxPn0oWNpYlCera1cxN/55itLpt2H45A3uvbMObjiy89pMWP7ydioZk0dXyFNZWIuGW/asLoUR8fZLQenod325MlzsuXLVMHnMeRIXrLC67G4OHP8roPZ4hajI9y7YdSOB9+n+FfKw4KmLfSUlEbdPOvJ9dJv3sUnMTZmqM9yypsd+ckHLNm7ghW/8p/Alp3+8i87OHIgAAAABJRU5ErkJggg==',
         };
 
 
@@ -2926,17 +2931,11 @@
                 return getElementByXPath(selector);
             };
         };
-
         function mousedownhandler(e) {
             var target = e.target;
-
             target = getElementByXPath('ancestor-or-self::a[contains(@class, "sej-engine")]', target);
-
-            // if (!target || target.className.indexOf('sej-engine') == -1) return;
-            // 某些网站致下方的this无法达到原本的效果, 例 https://origenapellido.com/apellido-gavira/
-            // if (!target || !this.contains(target)) return;
-            if (!target) return;  
-
+            if (!target) return;
+        
             var value;
             if (typeof iInput == 'function') {
                 value = iInput();
@@ -2945,92 +2944,92 @@
                     value = iInput.value;
                 } else {
                     value = iInput.textContent;
-                };
-            };
-
-            // 如果搜索内容是通过某一网站搜索, 就去掉。 例: 0 site:zhihu.com  只保留0, 后面的网站会去掉
+                }
+            }
+        
             if(!getSettingData.HideTheSameLink){
                 value = value.replace(/site[^\s]+/, "");
             }
-
-
-            // 编码 解码
-               // 对搜索词编码 (未做解码处理，浏览器自动处理) 网站1688采用gbk编码
+        
             var ogbk = target.getAttribute('gbk');
             if (ogbk){
-                value = toGBK(value)
+                value = toGBK(value);
             } else {
                 value = encodeURIComponent(value);
             }
-            // // @name     searchEngineJump-NextStage
-            // if (document.characterSet != "UTF-8") value = encodeURIComponent(value);
-
+        
             var targetURL = target.getAttribute('url');
-
-            // 一键搜索
+        
             if(getSettingData.allOpen && target.classList.contains("sej-drop-list-trigger")){
-                var list = engineList[target.dataset.iqxincategory]
-                // console.log("allOpen")
-                // console.log(list)
-
+                var list = engineList[target.dataset.iqxincategory];
                 for(var i=0;i<list.length;i++){
-                    if (list[i].url.indexOf("site:")<0 && matchedRule?.url.test(list[i].url)) continue ;
-                    if (list[i].disable) continue ;
+                    if (list[i].url.indexOf("site:")<0 && matchedRule?.url.test(list[i].url)) continue;
+                    if (list[i].disable) continue;
                     var href = list[i].url.replaceAll('%s', value);
-                    GM_openInTab(href)
+                    GM_openInTab(href);
                 }
                 target.setAttribute("onclick","return false;");
-                return
+                return;
             }
-
-
-            // 如果有post请求
+        
+            // 修改这里的多重搜索处理逻辑
+            if (targetURL.includes(';')) {
+                const urls = targetURL.split(';').filter(url => url.trim());
+                
+                urls.forEach((url, index) => {
+                    // 确保 URL 格式正确
+                    let cleanUrl = url.trim();
+                    const postSign = cleanUrl.indexOf('$post$');
+                    
+                    if (~postSign) {
+                        // 处理 POST 请求
+                        const formUrl = cleanUrl.substring(0, postSign);
+                        const formData = cleanUrl.substring(postSign + 6);
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = formUrl;
+                        form.target = '_blank';
+                        
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = formData;
+                        input.value = value;
+                        
+                        form.appendChild(input);
+                        document.body.appendChild(form);
+                        form.submit();
+                        document.body.removeChild(form);
+                    } else {
+                        // 处理 GET 请求
+                        setTimeout(() => {
+                            const finalURL = cleanUrl.replaceAll('%s', value);
+                            GM_openInTab(finalURL);
+                        }, index * 100); // 添加延迟，避免被浏览器拦截
+                    }
+                });
+                
+                target.setAttribute("onclick", "return false;");
+                return;
+            }
+        
+            // 原有的单个搜索处理逻辑保持不变
             var postSign = targetURL.indexOf('$post$');
             if(~postSign){
-                var f=getPostFormHTML(targetURL.substring(0,postSign),[targetURL.substring(postSign+6),value],target.getAttribute('target'))
-                target.appendChild(f)
+                var f = getPostFormHTML(
+                    targetURL.substring(0, postSign),
+                    [targetURL.substring(postSign + 6), value],
+                    target.getAttribute('target')
+                );
+                target.appendChild(f);
                 target.setAttribute("onclick","this.getElementsByTagName('form')[0].submit();return false;");
-
-                // var postURL = parseUri(target.getAttribute('url'));
-                // console.log(postURL);
-                // target.setAttribute("onclick","return false;");
-                // GM_xmlhttpRequest({
-                //     method: "post",
-                //     url: target.url,
-                //     data: targetURL.substring(postSign + 6) + '=' + value ,
-                //     get data() {
-                //         return this._data;
-                //     },
-                //     set data(value) {
-                //         this._data = value;
-                //     },
-                //     headers:  {
-                //         "Content-Type": "application/x-www-form-urlencoded",
-                //         "Origin":postURL.host,
-                //         "Referer":postURL.host
-                //     },
-                //     onload: function(res){
-                //         if(res.status === 200){
-                //             console.log('成功')
-                //         }else{
-                //             console.log('失败')
-                //             console.log(res)
-                //         }
-                //     },
-                //     onerror : function(err){
-                //         console.log('error')
-                //         console.log(err)
-                //     }
-                // });
-
-            } else{
-                //console.log(value);
-                target.href = target.getAttribute('url').replaceAll('%s', value);
+            } else {
+                target.href = targetURL.replaceAll('%s', value);
             }
+        
             if(selectSearchMode){
-                target.target="_blank";
+                target.target = "_blank";
             }
-        };
+        }
          //获取  POST 的表单的 HTML
         function getPostFormHTML(url, value, newTab) {
             //console.log(url,value,newTab)
