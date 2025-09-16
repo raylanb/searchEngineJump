@@ -3,9 +3,9 @@
 // @author         NLF&锐经(修改) & iqxin(修改) & raylanb(修改)
 // @contributor    iqxin
 // @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.26.14
+// @version        5.26.15
 // @created        2011-07-02
-// @lastUpdated    2025-01-15
+// @lastUpdated    2025-09-16
 
 // @origin_namespace      https://greasyfork.org/zh-CN/scripts/27752-searchenginejump
 // @updateURL       https://raw.githubusercontent.com/raylanb/searchEngineJump/master/searchEngineJump.user.js
