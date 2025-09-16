@@ -55,9 +55,9 @@
                 //  给引擎列表的样式 
                 style: '\
                     z-index: 100;\
-                    margin-top: -10px;\
+                    margin-top: 8px;\
                     margin-bottom: -5px;\
-                    margin-left: -10px;\
+                    margin-left: 200px;\
                     ',
                 // 给引擎列表的样式 （“style_ACBaidu” 可选,是为了兼容 “AC Baidu” 脚本）
                 style_ACBaidu: '\
@@ -75,7 +75,7 @@
                         // 'beforeEnd' (作为给定元素的最后一个子元素) ;
                         // 'afterEnd'(插入到给定元素的后面);.
                 insertIntoDoc: {
-                    target: 'css;#bqHHPb, .bqHHPb',
+                    target: 'css;.rZj61',
                     // 若 keyword 使用函数获取
                     // keyword: function () {
                         // var input = document.getElementById('lst-ib');
